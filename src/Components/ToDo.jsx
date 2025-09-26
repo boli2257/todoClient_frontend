@@ -2,14 +2,14 @@
 import { FaTrash } from "react-icons/fa";
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { useState } from 'react';
-import { ListGroup, ListGroupItem } from 'reactstrap'
+import { Button, ListGroup, ListGroupItem } from 'reactstrap'
 import { NewToDo } from './NewToDo';
 import { FaRegTrashCan } from "react-icons/fa6";
 import { TodoSummary } from './todoSummary';
 import { addTodo, deleteTodo, completedTodo, getTodos, deleteAll } from '../utils.js';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-export const ToDo = () => {
+export const ToDo = ({setIsLoggedIn}) => {
 
 const [todos, setTodos] = useState(null)
 
@@ -50,6 +50,8 @@ useEffect(()=>{
         )}
       </ListGroup>
       {/*<TodoSummary todos={todos}/>*/}
+
+      <Button style={{position:"fixed", top:"5px", right:"5px"}} onClick={()=>setIsLoggedIn(false)}>Kijelentkezés</Button>
     </div>
   )
 }
