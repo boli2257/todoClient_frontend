@@ -18,11 +18,6 @@ console.log(todos);
 useEffect(()=>{
     getTodos(setTodos)}
 ,[])
-
- const handleDeleteAll = async ()=>{
-    await deleteAll()
-    getTodos(setTodos)
- }
  const handleDelete = async (id) => {
   await deleteTodo(id)//az adatbázisból megtörénik a módosítás
   getTodos(setTodos)
@@ -38,7 +33,6 @@ useEffect(()=>{
   return (
     <div style={{maxWidth:"600px", padding:"1rem", margin:"0 auto"}}>
       <NewToDo handleAdd={handleAdd}/>
-      <FaRegTrashCan onClick={handleDeleteAll} style={{color:"red", fontSize:"2rem",border:"solid 2px red",borderRadius:"7px", padding:"2px"}}/>
       <ListGroup> 
         {todos && todos.map(obj =>
           <ListGroupItem className='d-flex justify-content-between' key={obj.id}>
